@@ -7,8 +7,8 @@ import Nav from './Nav'
 
 const App = () => (
   <Router>
-    <div className='app-container'>
-      <h1>Hello World</h1>
+    <div className='app-container has-text-centered'>
+      <h1 className="title is-1">Hello World</h1>
       <Route path="/" component={Nav} />
       <Route path="/login" component={Login} />
       <Route path="/Register" component={Register} />

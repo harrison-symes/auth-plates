@@ -16,8 +16,6 @@ function register (req, res, next) {
     .catch(err => res.status(500).send({message: err.message}))
 }
 
-
-
 router.post('/login', token.issue)
 
 module.exports = router

@@ -1,4 +1,5 @@
 const localStorage = global.window.localStorage
+
 export function get (key) {
   return localStorage.getItem(key)
 }

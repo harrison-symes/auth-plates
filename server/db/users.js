@@ -1,8 +1,10 @@
 var hash = require('../auth/hash')
+const db = require('./connection')
 
-function createUser (user_name, password, db) {
+function createUser (user_name, password) {
   return new Promise ((resolve, reject) => {
     hash.generate(password, (err, hash) => {
+      console.log({err, hash});
       if (err) reject(err)
       db('users')
         .insert({user_name: user_name.toLowerCase(), hash})
@@ -12,15 +14,14 @@ function createUser (user_name, password, db) {
   })
 }
 
-function userExists (user_name, db) {
-  console.log({user_name});
+function userExists (user_name) {
   return db('users')
     .where('user_name', user_name.toLowerCase())
     .first()
     .then(user => !!user)
 }
 
-function getUserByName (user_name, db) {
+function getUserByName (user_name) {
   return db('users')
     .where('user_name', user_name.toLowerCase())
     .first()

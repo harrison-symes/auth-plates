@@ -2,6 +2,8 @@
 
 This is a rad base for starting a new full-stack project + Auth, or just as reference for how to do things the Harrison way (which is with absolutely no test folder, I'll leave that one to Alan)
 
+## Init
+
 * Fork this repo to your github
 * Rename your repo according to the app you're building
 
@@ -13,30 +15,43 @@ To start a new project:
   * `git remote -v` to see your remotes
   * `git push origin master` to push the boilerplate code to your new repo
 
+## Setup
+
 Run the following commands in your terminal:
 
 ```sh
-npm install
-knex migrate:latest
-knex seed:run
+yarn install
+yarn knex migrate:latest
+yarn knex seed:run
+mv .env_example .env
+```
+
+To run in development:
+```sh
+yarn dev
+ - or -
+npm run dev
 
 ```
 
-  `npm run dev` for bundling, watch and nodemon
+To run in production:
+```sh
+yarn start
+  - or -
+npm start
+```
 
-  `npm start` only runs server (setup for heroku)
 
+## Heroku!!!
 
-# Heroku!!!
-
-#### Creating your app
+### Creating your app
 
 Create your app with `heroku create [name]`
 
 You can check that this was successful by running `heroku apps` to view a list of your apps
 
 
-#### Adding postgres
+### Adding postgres
 
 Add postgresql (hobby dev) to your app at `https://dashboard.heroku.com/apps/[APP NAME HERE]/resources`
 
@@ -47,16 +62,34 @@ Check that pg has been added by running `heroku addons` to ensure the postgresql
 
 I have created several npm scripts that will be useful for deploying your app to heroku easily.
 
-`npm run h:deploy` will push your local master branch to your heroku app
+To push your local master branch to your heroku app:
+```sh
+yarn h:deploy
+  - or -
+npm run h:deploy
+```
 
-`npm run h:migrate` will run your knex migrations on your deployed heroku app
+Run heroku migrations:
+```sh
+yarn h:migrate
+  - or -
+npm run h:migrate
+```
 
-`npm run h:seed` will run your seeds on your deployed app
+Run heroku seeds:
+```sh
+yarn h:seed
+  - or -
+npm run h:seed
+```
 
-If ever you need to rollback, you can also just use `npm run h:rollback`
+If ever you need to rollback, you can also:
+```sh
+yarn h:rollback
+  - or -
+npm run h:rollback
+```
 
 
-## Ta-Da!
+### Ta-Da!
 Your app should be deployed!
-
-I can add some exercises/comments to this repo if there is desire for such, but for now, hopefully this proves useful :)

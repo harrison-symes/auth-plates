@@ -7,10 +7,12 @@ import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import App from './components/App'
 
+import './sass/main.scss'
+
 let store = createStore(reducers, compose(
   applyMiddleware(thunkMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
-)) 
+))
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
